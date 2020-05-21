@@ -19,11 +19,11 @@ int main(int argc, char *argv[])
     Vector T;
 
     cout << "METODOS DE LOS ELEMENTOS FINITOS EN DOS DIMENSIONES CON FUNCIONES DE FORMA\n"
-         << "LINEALES Y PESOS DE GALERKIN - 00117716\n";
+         << "LINEALES Y PESOS DE GALERKIN - 00117716\n\n";
 
     mesh m;
     leerMallayCondiciones(m,filename);
-    //cout << "Datos obtenidos correctamente\n********************\n";
+    cout << "Datos obtenidos correctamente\n********************\n";
 
     crearSistemasLocales(m,localKs,localbs);
 
@@ -35,12 +35,12 @@ int main(int argc, char *argv[])
 
     applyDirichlet(m,K,b);
 
-    //showMatrix(K);
+    showMatrix(K);
     zeroes(T,b.size());
     calculate(K,b,T);
 
-    //cout << "La respuesta es: \n";
-    //showVector(T);
+    cout << "La respuesta es: \n";
+    showVector(T);
 
     writeResults(m,T,filename);
 
